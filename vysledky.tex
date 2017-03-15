@@ -29,15 +29,60 @@ Napětí na vzorku během měření kolísalo, maximální chybu odhadujeme na $
 
 V obou případech jsme vzali poslední změřenou hodnotu (viz diskuze) a zanesli ji do tabulky \ref{t:1}.
 
-
-
 \begin{tabulka}[htbp]
 \centering
-\begin{tabular}{|cccc|}
-\hline 
-1 & 2 & 3 & 4 \\
-\hline
+\begin{tabular}{cc|cc}
+\multicolumn{2}{c|}{první měření} & \multicolumn{2}{c}{druhé měření} \\
+$U$ (\si{\volt}) & $I/I_0$ & $U$ (\si{\volt}) & $I/I_0$ \\ \hline
+100 & 0,004 & 150 & 0,003 \\ 
+200 & 0,004 & 300 & 0,000 \\ 
+300 & 0,002 & 400 & 0,002 \\ 
+400 & 0,003 & 450 & 0,007 \\ 
+450 & 0,006 & 500 & 0,021 \\ 
+500 & 0,018 & 550 & 0,054 \\ 
+550 & 0,045 & 600 & 0,119 \\ 
+600 & 0,103 & 650 & 0,235 \\ 
+650 & 0,207 & 700 & 0,410 \\ 
+700 & 0,385 & 750 & 0,677 \\ 
+750 & 0,625 & 800 & 0,860 \\ 
+800 & 0,851 & 825 & 0,922 \\ 
+850 & 0,970 & 850 & 0,983 \\ 
+900 & 0,952 & 875 & 1,000 \\ 
+950 & 0,713 & 900 & 0,982 \\ 
+1000 & 0,327 & 950 & 0,841 \\ 
+ &  & 1000 & 0,538 \\ 
+
 \end{tabular}
-\caption{}
+\caption{Závislost intenzity na přiloženém napětí}
 \label{t:1}
 \end{tabulka}
+
+\begin{graph}[htbp] 
+\centering
+\input{3.tex}
+\caption{Závislost intenzity na přiloženém napětí}
+\label{g:3}
+\end{graph}
+
+\begin{graph}[htbp] 
+\centering
+\input{4.tex}
+\caption{K určení Kerrovy konstanty}
+\label{g:4}
+\end{graph}
+
+Z tabulky \ref{t:1} jsme určili z druhého měření půlvlnné napětí
+\begin{equation*}
+U_p=\SI{875(20)}{\volt} \,,
+\end{equation*}
+v prvním měření byl výsledek stejný, jen méně přesný.
+
+V programu gnuplot jsme lineární regresí závislosti \eqref{e:fit} určilli konstantu úměrnosti (viz graf \ref{g:4})
+\begin{equation*}
+K \frac{\pi l}{d^2} = (\num{2.97(6)})\SI{e-6}{\per\volt\squared}
+\end{equation*}
+a dostáváme Kerrovu konstantu
+\begin{equation*}
+K = (\num{1.24(4)})\SI{e-6}{\metre\per\volt\squared} \,.
+\end{equation*}
+Hodnota získaná z prvního měření by se zřejmě příliš nelišila (viz graf \ref{g:4}).
